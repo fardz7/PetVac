@@ -16,8 +16,7 @@
     "noUncheckedIndexedAccess": true,     
     "noFallthroughCasesInSwitch": true,
     "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "ignoreDeprecations": "7.0",  
+    "strictNullChecks": true, 
     "plugins": [
       {
         "name": "next"

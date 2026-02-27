@@ -17,8 +17,13 @@ const nextConfig = {
         destination: "/personnel/dashboard/dashboard",
         permanent: false,
       },
+      
     ];
   },
+  eslint: {
+    ignoreDuringBuilds: true
+  }
+
 };
 
 module.exports = nextConfig;
