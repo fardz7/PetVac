@@ -177,8 +177,8 @@ const VMS = () => {
   const handleInsertEvent = async (event: any) => {
     event.preventDefault();
 
-    const stockinDate = new Date(newStockInDate);
-    const expirationDate = new Date(newExpirationDate);
+    const stockinDate = new Date(newStockInDate ?? new Date().toISOString());
+    const expirationDate = new Date(newExpirationDate ?? new Date().toISOString());
 
     const newRecord = {
       batch_number: newBatchNumber,
