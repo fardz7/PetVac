@@ -94,14 +94,18 @@ const VaxSched = () => {
     const maxId = Math.max(...events.map((event) => event.id));
     const newId = Number.isFinite(maxId) ? maxId + 1 : 1;
 
+    if (!startDate || !endDate) {
+      throw new Error("Start or End date is missing");
+    }
+    
     const newEvent: Event = {
       id: newId,
       // id: Number.isFinite(maxId) ? maxId + 1 : 1,
       title: location || "",
-      start_date: startDate.toISOString().split("T")[0],
-      start_time: startDate.toTimeString().split(" ")[0],
-      end_date: endDate.toISOString().split("T")[0],
-      end_time: endDate.toTimeString().split(" ")[0],
+      start_date: startDate.toISOString().split("T")[0] || "",
+      start_time: startDate.toTimeString().split(" ")[0] || "",
+      end_date: endDate.toISOString().split("T")[0] || "",
+      end_time: endDate.toTimeString().split(" ")[0] || "",
       location: location || "",
       note: notes || "",
       allDay: false,
