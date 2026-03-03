@@ -904,7 +904,7 @@ const PetOwnerDashboard = () => {
     responses.forEach((response, index) => {
       if (response?.error) {
         console.error(
-          `Error inserting new appointment for pet ${newAppointments[index].pet_id}:`,
+          `Error inserting new appointment for pet ${newAppointments[index]?.pet_id ?? "unknown"}:`,
           response.error
         );
       }
