@@ -94,6 +94,10 @@ const VaxSched = () => {
     const maxId = Math.max(...events.map((event) => event.id));
     const newId = Number.isFinite(maxId) ? maxId + 1 : 1;
 
+    if (!startDate || !endDate) {
+      throw new Error("Start or End date is missing");
+    }
+    
     const newEvent: Event = {
       id: newId,
       // id: Number.isFinite(maxId) ? maxId + 1 : 1,
