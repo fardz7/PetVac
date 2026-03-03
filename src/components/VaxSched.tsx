@@ -147,12 +147,19 @@ const VaxSched = () => {
     const timeObject = new Date(currentTime);
 
     const currentDate1 = new Date();
-    const [hours, minutes, seconds] = currentTime.split(":");
-    currentDate1.setHours(
-      parseInt(hours),
-      parseInt(minutes),
-      parseInt(seconds)
-    );
+    if (currentTime) {
+    const timeParts = currentTime.split(":");
+
+    const hours = timeParts[0] ?? "0";
+    const minutes = timeParts[1] ?? "0";
+    const seconds = timeParts[2] ?? "0";
+
+  currentDate1.setHours(
+    parseInt(hours),
+    parseInt(minutes),
+    parseInt(seconds)
+  );
+}
 
     const formattedDate = dateObject.toLocaleDateString("en-US", {
       weekday: "long",
