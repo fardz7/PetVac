@@ -854,9 +854,10 @@ const PetOwnerDashboard = () => {
 
     const paddedValue =
       selectedAppointment?.value?.toString().padStart(4, "0") || "";
-    const [hours, minutes] = selectedTime.split(":");
-    const paddedHours = hours.padStart(2, "0");
-    const paddedMinutes = minutes.padStart(2, "0");
+    const safeTime = selectedTime ?? "00:00"; // fallback to midnight
+    const [hours, minutes] = safeTime.split(":");
+    const paddedHours = (hours ?? "00").padStart(2, "0");
+    const paddedMinutes = (minutes ?? "00").padStart(2, "0");
 
     // Get current date and time
     const now = new Date();
