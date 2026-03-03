@@ -42,7 +42,7 @@ export const fetchVaccinatedPets = async (barangay: string) => {
   response.data.forEach((record) => {
     const recordDate = new Date(record.created_at);
     if (recordDate.getFullYear() === currentYear) {
-      const month = monthNames[recordDate.getMonth()];
+      const month = monthNames[recordDate.getMonth()] ?? "Unknown";
       if (!totalRecords[month]) {
         totalRecords[month] = 0;
       }
