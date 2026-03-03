@@ -538,8 +538,10 @@ const VaxSched = () => {
                     onClick={() => {
                       setShowSharePrompt(true);
                       setCurrentLocation(event.location);
-                      setCurrentDate(event.start.toISOString().split("T")[0]);
-                      setCurrentTime(event.start.toTimeString().split(" ")[0]);
+                      setCurrentDate(
+                      event.start?.toISOString().split("T")[0] ?? "");
+                      setCurrentTime(
+                      event.start?.toTimeString().split(" ")[0] ?? "00:00:00");
                       setCurrentNotes(event.notes);
                     }}>
                     <IoShare />
