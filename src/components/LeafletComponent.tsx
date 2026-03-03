@@ -50,12 +50,15 @@ const LeafletComponent: React.FC<LeafletComponentProps> = ({
       });
   }
 
-  let multiPolygon = Object.values(locationPositions);
+  const coordinates = Object.values(locationPositions) as [number, number][];
 
-// Use [0,0] if the first element is undefined
-  const firstPoint: [number, number] = multiPolygon[0] ?? [0, 0];
+  let multiPolygon: [number, number][] = [];
 
-  multiPolygon = [...multiPolygon, firstPoint];
+  const first = coordinates.at(0);
+
+  if (first) {
+    multiPolygon = [...coordinates, first];
+  }
 
   const ICON = icon({
     iconUrl: "/pet-vax-logo-no-text.svg",
